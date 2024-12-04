@@ -1,7 +1,7 @@
 <?php
 //------------Variables para conexion---------
 $equipo= "localhost";
-$namebd= "planetario";
+$namebd= "Fosis";
 $puerto= "0000" //ingresar el puerto correcto;
 $usuario= "postgres"; //ingresar usuario correcta
 $clave= "0000"; //ingresar password correcto
