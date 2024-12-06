@@ -1,5 +1,40 @@
 <html>
-    <hr>
-        <h2>EJECUTOR</h2>
-    <hr>
+   <head>
+        <title>EJECUTOR</title>
+   </head>
+
+   <body>
+
+        <b><h3>Ingreso ejecutor</h3></b>
+
+
+        <form id="ingreso_ejecutor" method="post">
+               <table>
+               <tr>
+                    <td>Rut: </td>
+                    <td> <input type = "number" name="rutEjecutor"> </td>
+               </tr>
+
+               <tr>
+                    <td>Nombre: </td>
+                    <td> <input type = "text" name="nombreEjecutor"> </td>
+               </tr>
+
+               <tr>
+                    <td>Tipo: </td>
+                    <td>
+                         <select name="tipoEjecutor">
+                              <option value="Publico"> Publico </option>
+                              <option value="Familia"> Privado </option>
+                         </select> 
+                    </td>
+               </tr>
+
+               <td> <input type="submit" value="Agregar"> </td>
+
+               </table>
+
+        </form>
+
+   </body>
 </html>
