@@ -4,8 +4,49 @@
    </head>
 
    <body>
+
         <b><h3>Ingreso de postulantes</h3></b>
         <p>Ingrese los datos del nuevo postulante</p>
+
+        <form id="ingreso_postulante" method="post">
+               <table>
+               <tr>
+                    <td>Rut: </td>
+                    <td> <input type = "number" name="rutPostulante"> </td>
+               </tr>
+
+               <tr>
+                    <td>Nombre: </td>
+                    <td> <input type = "text" name="nombrePostulante"> </td>
+               </tr>
+
+               <tr>
+                    <td>Telefono: </td>
+                    <td> <input type = "number" name="telefonoPostulante"> </td>
+               </tr>
+
+               <tr>
+                    <td>Direccion: </td>
+                    <td> <input type = "text" name="direccionPostulante"> </td>
+               </tr>
+
+               <tr>
+                    <td>Tipo: </td>
+                    <td>
+                         <select name="tipoPostulante">
+                              <option value="Persona"> Persona </option>
+                              <option value="Familia"> Familia </option>
+                              <option value="Comunidad"> Comunidad </option>
+                              <option value="Organizacion"> Organizacion </option>
+                         </select> 
+                    </td>
+               </tr>
+
+               <td> <input type="submit" value="Agregar"> </td>
+
+               </table>
+
+        </form>
 
    </body>
 </html>
