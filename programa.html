@@ -2,4 +2,51 @@
     <hr>
         <h2>PROGRAMA</h2>
     <hr>
+
+    <body>
+
+        <b><h3>Ingreso de Programa</h3></b>
+        <p>Ingrese los datos del nuevo programa</p>
+
+        <form id="ingreso_postulante" method="post">
+               <table>
+               <tr>
+                    <td>Codigo: </td>
+                    <td> <input type = "number" name="codigoPrograma"> </td>
+               </tr>
+
+               <tr>
+                    <td>Nombre: </td>
+                    <td> <input type = "text" name="nombrePrograma"> </td>
+               </tr>
+
+               <tr>
+                    <td>Tipo: </td>
+                    <td>
+                         <select name="tipoPrograma">
+                              <option value="Autonomia Economica"> Autonomia Economica </option>
+                              <option value="Cohesion Social"> Cohesion Social </option>
+                              <option value="Habitat Saludable"> Habitat Saludable </option>
+                              <option value="Familias"> Familias </option>
+                         </select> 
+                    </td>
+               </tr>
+
+               <tr>
+                    <td>Fecha inicio</td>
+                    <td> <input type="date" name="fechaInicioPrograma">/td>
+               </tr>
+
+               <tr>
+                    <td>Fecha termino</td>
+                    <td> <input type="date" name="fechaTerminoPrograma">/td>
+               </tr>
+
+               <td> <input type="submit" value="Agregar"> </td>
+
+               </table>
+
+        </form>
+
+   </body>
 </html>
