@@ -2,9 +2,9 @@
 //------------Variables para conexion---------
 $equipo= "localhost";
 $namebd= "Fosis";
-$puerto= "0000" //ingresar el puerto correcto;
+$puerto= "5433" //ingresar el puerto correcto;
 $usuario= "postgres"; //ingresar usuario correcta
-$clave= "0000"; //ingresar password correcto
+$clave= "pemuco18"; //ingresar password correcto
 
 //------------Aqui la conexion----------------
 $coneccion = pg_connect("host= $equipo
