@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+include '../conexion.php';
 
 if($_POST['rutPostulante'] != "" )
 {
@@ -9,7 +9,7 @@ if($_POST['rutPostulante'] != "" )
     $direccion = $_POST['direccionPostulante'];
     $tipo = $_POST['tipoPostulante'];
 
-    $sql = "INSERT INTO postulante VALUES (".$rut.",".$nombre.",".$telefono.",".$direccion.",".$tipo.");";
+    $sql = "INSERT INTO postulante VALUES (".$rut.",'".$nombre."','".$telefono."','".$direccion."','".$tipo."');";
     $insercion = pg_query($coneccion,$sql);
 
     if($insercion)

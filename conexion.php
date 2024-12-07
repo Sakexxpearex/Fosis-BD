@@ -1,8 +1,8 @@
 <?php
 //------------Variables para conexion---------
 $equipo= "localhost";
-$namebd= "Fosis";
-$puerto= "5433" //ingresar el puerto correcto;
+$namebd= "fosis";
+$puerto= "5433"; //ingresar el puerto correcto;
 $usuario= "postgres"; //ingresar usuario correcta
 $clave= "pemuco18"; //ingresar password correcto
 
@@ -13,4 +13,11 @@ $coneccion = pg_connect("host= $equipo
                         user= $usuario
                         password= $clave
                         ");
+if (!$coneccion) 
+{
+    echo "Error: No se pudo conectar a la base de datos.";
+} else 
+{
+    echo "Conexión exitosa a la base de datos.";
+}
 ?>
