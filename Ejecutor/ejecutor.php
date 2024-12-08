@@ -5,7 +5,7 @@
 
     <body>
 
-    <form method="POST" action="">
+    <form method="POST" >
         <button type="submit" name="mostrar_ejecutores">Mostrar Ejecutores</button>
     </form>
 
@@ -18,7 +18,7 @@
         $result = pg_query($coneccion, $query);
 
         if (pg_num_rows($result) > 0) {
-            echo "<h2>Lista de Oficinas</h2>";
+            echo "<h2>Lista de Ejecutores</h2>";
             echo "<table border='1'>
                     <tr>
                         <th>Rut</th>
