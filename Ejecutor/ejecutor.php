@@ -44,5 +44,34 @@
 
 
     ?>
+
+        <p>Ingrese el rut del consultor que desea eliminar</p>
+            <form method="post">
+                Rut: <input type = "number" name="rutEjecutor">
+                <input type = "submit" value= "Eliminar">
+            </form>
+    
+    <?php
+
+    include '../conexion.php';
+
+    if (!empty($_POST['rutEjecutor']) && is_numeric($_POST['rutEjecutor'])) {
+        
+        $rutEjecutor = (int)$_POST['rutEjecutor'];
+    
+        
+        $delete = "DELETE FROM ejecutor WHERE rut = $rutEjecutor";
+    
+        
+        $insercion = pg_query($coneccion, $delete);
+    
+        
+        if ($insercion) {
+            echo "Eliminación con éxito";
+        } else {
+            echo "Se ha producido un error al eliminar";
+        }
+    }
+    ?>
     </body>
 </html>
