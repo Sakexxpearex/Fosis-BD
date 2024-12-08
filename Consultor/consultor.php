@@ -9,7 +9,6 @@
             <li><a href="../index.html">Home</a></li>
             <li><a href="../Postulante/postulante.html">Postulantes</a></li>
             <li><a href="../Postulacion/postulacion.html">Postulaciones</a></li>
-            <li><a href="../Programa/programa.html">Programas</a></li>
             <li><a href="../Oficina/oficina.php">Oficinas</a></li>
             <li><a href="../Ejecutor/ejecutor.php">Ejecutores</a></li>
 
