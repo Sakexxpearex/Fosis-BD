@@ -1,9 +1,19 @@
 <html>
     <hr>
-    <h2>Lista Consultores</h2>
+    <h2>CONSULTORES</h2>
     <hr>
 
     <body>
+
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../Postulante/postulante.html">Postulantes</a></li>
+            <li><a href="../Postulacion/postulacion.html">Postulaciones</a></li>
+            <li><a href="../Programa/programa.html">Programas</a></li>
+            <li><a href="../Oficina/oficina.php">Oficinas</a></li>
+            <li><a href="../Ejecutor/ejecutor.php">Ejecutores</a></li>
+
+        </ul>
 
     <form method="POST" >
         <button type="submit" name="mostrar_consultores">Mostrar Ejecutores</button>
