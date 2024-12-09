@@ -53,10 +53,13 @@
 
                include '../conexion.php';
 
+               $tipoPrograma = "";
+               $region = "";
+
                if($_SERVER['REQUEST_METHOD'] === 'POST')
                {
-                    $tipoPrograma = $_POST['tipoPrograma'];
-                    $region = $_POST['region'];
+                    $tipoPrograma = $_POST['tipoPrograma'] ?? "";
+                    $region = $_POST['region'] ?? "";
                }    
                 
                $query = "SELECT codigo, nombre, tipo, fecha_inicio
@@ -71,7 +74,7 @@
                    echo "<h2>Programas Disponibles</h2>";
                    echo "<table border='1' style='margin: 20px;'>
                            <tr>
-                               <th>codigo</th>
+                               <th>Codigo</th>
                                <th>Nombre</th>
                                <th>Fecha</th>
                                <th>Tipo</th>
@@ -95,8 +98,10 @@
 
           ?>
 
+          <b><h3>Ingrese los datos del postulante</h3></b>
 
-<form id="ingreso_postulante"  action = "" method="post" >
+
+          <form id="ingreso_postulante"  action = "" method="post" >
                <table>
                <tr>
                     <td>Rut: </td>
