@@ -176,11 +176,15 @@
                     $sql = "INSERT INTO postulante (rut, nombre, telefono, direccion, tipo) 
                             VALUES ('$rut', '$nombre', '$telefono', '$direccion', '$tipo');";
 
+                    $sql2 = "INSERT INTO postulacion (ciudad, fecha, rut_postulante, codigo_programa, rut_ejecutor)
+                              VALUES ('$ciudad', NOW(), '$rut', '$codigo', (SELECT rut FROM ejecutor WHERE ocupado = false LIMIT 1))";
 
-                    $sql2 = "INSERT INTO postulacion (ciudad,fecha,rut_postulante,codigo_programa,rut_ejecutor)
-                              VALUES ('$ciudad',NOW(), '$rut', '$codigo',(SELECT rut FROM ejecutor WHERE ocupado = false));";
-                    $sql3 = "INSERT INTO ejecucion (codigo_programa, fecha_inicio, rut_ejecutor)
-                    VALUES ('$codigo', NOW(), (SELECT rut FROM ejecutor WHERE ocupado = false));";
+                   $sql3 = "INSERT INTO ejecucion (codigo_programa, fecha_inicio, rut_ejecutor)
+                              VALUES ('$codigo', NOW(), (SELECT rut FROM ejecutor WHERE ocupado = false LIMIT 1))";
+          
+
+                    $sql4 = "UPDATE ejecutor SET ocupado = true WHERE rut = (SELECT rut FROM ejecutor WHERE ocupado = false LIMIT 1)";
+                    
 
             
                     $insercion = pg_query($coneccion, $sql);
@@ -188,7 +192,9 @@
                     $insercion3 = pg_query($coneccion, $sql3);
 
                     $insercion2 = pg_query($coneccion, $sql2);
-            
+
+                    $insercion4 = pg_query($coneccion, $sql4);
+
                     if ($insercion) 
                     {
                         if($insercion2)
