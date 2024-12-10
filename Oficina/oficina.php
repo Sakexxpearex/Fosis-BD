@@ -8,8 +8,8 @@
             <li><a href="../index.html">Home</a></li>
             <li><a href="../Postulante/postulante.php">Postulantes</a></li>
             <li><a href="../Postulacion/postulacion.html">Postulaciones</a></li>
-            <li><a href="../Ejecutor/ejecutor.html">Ejecutores</a></li>
-            <li><a href="../Consultor/consultor.html">Consultores</a></li>
+            <li><a href="../Ejecutor/ejecutor.php">Ejecutores</a></li>
+            <li><a href="../Consultor/consultor.php">Consultores</a></li>
         </ul>
 
     <form method="POST">
@@ -21,14 +21,14 @@
 
 
     if (isset($_POST['mostrar_oficinas'])) {
-        $query = "SELECT ciudad, direccion, telefono , horario FROM oficinas";
+        $query = "SELECT region, direccion, telefono , horario FROM oficina";
         $result = pg_query($coneccion, $query);
 
         if (pg_num_rows($result) > 0) {
             echo "<h2>Lista de Oficinas</h2>";
             echo "<table border='1'>
                     <tr>
-                        <th>Ciudad</th>
+                        <th>Region</th>
                         <th>Dirección</th>
                         <th>Telefono</th>
                         <th>Horario</th>
@@ -36,7 +36,7 @@
 
             while ($row = pg_fetch_assoc($result)) {
                 echo "<tr>
-                        <td>{$row['ciudad']}</td>
+                        <td>{$row['region']}</td>
                         <td>{$row['direccion']}</td>
                         <td>{$row['telefono']}</td>
                         <td>{$row['horario']}</td>

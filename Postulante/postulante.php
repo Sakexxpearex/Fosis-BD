@@ -8,9 +8,9 @@
      <ul>
             <li><a href="../index.html">Home</a></li>
             <li><a href="../Postulacion/postulacion.html">Postulaciones</a></li>
-            <li><a href="../Oficina/oficina.html">Oficinas</a></li>
-            <li><a href="../Ejecutor/ejecutor.html">Ejecutores</a></li>
-            <li><a href="../Consultor/consultor.html">Consultores</a></li>
+            <li><a href="../Oficina/oficina.php">Oficinas</a></li>
+            <li><a href="../Ejecutor/ejecutor.php">Ejecutores</a></li>
+            <li><a href="../Consultor/consultor.php">Consultores</a></li>
 
      </ul>
 
@@ -23,7 +23,15 @@
     
                <tr>
                     <td>Region</td>
-                    <td> <input type = "text" name="region"> </td>
+                    <td>
+                    <select name="region">
+                         <option value="Bio Bio">Bio Bio</option>
+                         <option value="Ñuble">Ñuble</option>
+                         <option value="Metropolitana">Metropolitana</option>
+                         <option value="Magallanes">Magallanes</option>
+                         <option value="Arica y Parinacota">Arica y Parinacota</option>
+                    </select> 
+               </td>
                </tr>
 
                <tr>
@@ -62,10 +70,9 @@
                     $region = $_POST['region'] ?? "";
                }    
                 
-               $query = "SELECT codigo, nombre, tipo, fecha_inicio
+               $query = "SELECT codigo, nombre, tipo
                FROM programa
-               WHERE fecha_termino IS NULL 
-               AND tipo = '$tipoPrograma' 
+               WHERE tipo = '$tipoPrograma' 
                AND region = '$region'";
                
                $result = pg_query($coneccion, $query);
@@ -76,7 +83,6 @@
                            <tr>
                                <th>Codigo</th>
                                <th>Nombre</th>
-                               <th>Fecha</th>
                                <th>Tipo</th>
                            </tr>";
        
@@ -84,7 +90,6 @@
                        echo "<tr>
                                <td>{$row['codigo']}</td>
                                <td>{$row['nombre']}</td>
-                               <td>{$row['fecha_inicio']}</td>
                                <td>{$row['tipo']}</td>
                            </tr>";
                    }

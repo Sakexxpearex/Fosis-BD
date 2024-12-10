@@ -59,7 +59,7 @@
                 <table>
                     <tr>
                         <td>Rut: </td>
-                        <td><input type = "number" name="rutConsultor"></td>
+                        <td><input type = "text" name="rutConsultor"></td>
                     </tr>
 
                     <tr>
@@ -87,9 +87,9 @@
 
             include '../conexion.php';
 
-            if (!empty($_POST['rutConsultor']) && is_numeric($_POST['rutConsultor'])) {
+            if (!empty($_POST['rutConsultor'])) {
         
-                $rutConsultor = (int)$_POST['rutConsultor'];
+                $rutConsultor = $_POST['rutConsultor'];
 
                 $nombreConsultor = $_POST['nombreConsultor'];
 
@@ -98,7 +98,7 @@
                 $webConsultor = isset($_POST['webConsultor']) && $_POST['webConsultor'] == '1' ? 'TRUE' : 'FALSE';
             
                 
-                $upgrade = "UPDATE consultor SET nombre = '$nombreConsultor', domicilio = '$domicilioConsultor', web ='$webConsultor' WHERE rut = $rutConsultor";
+                $upgrade = "UPDATE consultor SET nombre = '$nombreConsultor', domicilio = '$domicilioConsultor', web ='$webConsultor' WHERE rut = '$rutConsultor'";
             
                 
                 $insercion = pg_query($coneccion, $upgrade);
