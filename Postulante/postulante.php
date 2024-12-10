@@ -7,7 +7,7 @@
 
      <ul>
             <li><a href="../index.html">Home</a></li>
-            <li><a href="../Postulacion/postulacion.html">Postulaciones</a></li>
+            <li><a href="../Postulacion/postulacion.php">Postulaciones</a></li>
             <li><a href="../Oficina/oficina.php">Oficinas</a></li>
             <li><a href="../Ejecutor/ejecutor.php">Ejecutores</a></li>
             <li><a href="../Consultor/consultor.php">Consultores</a></li>
@@ -106,11 +106,11 @@
           <b><h3>Ingrese los datos del postulante</h3></b>
 
 
-          <form id="ingreso_postulante"  action = "" method="post" >
+          <form id="ingreso_postulante" method="post" >
                <table>
                <tr>
                     <td>Rut: </td>
-                    <td> <input type = "number" name="rutPostulante"> </td>
+                    <td> <input type = "text" name="rutPostulante"> </td>
                </tr>
 
                <tr>
@@ -120,7 +120,12 @@
 
                <tr>
                     <td>Telefono: </td>
-                    <td> <input type = "number" name="telefonoPostulante"> </td>
+                    <td> <input type = "text" name="telefonoPostulante"> </td>
+               </tr>
+
+               <tr>
+                    <td>Ciudad: </td>
+                    <td> <input type = "text" name="ciudadPostulante"> </td>
                </tr>
 
                <tr>
@@ -150,7 +155,64 @@
 
                <td> <input type="submit" value="Postular"> </td>
 
+          <?php
+          include '../conexion.php';
 
+          if($_SERVER['REQUEST_METHOD'] === 'POST')
+          {
+
+               if (isset($_POST['rutPostulante']) && !empty($_POST['rutPostulante'])) 
+               {
+                    
+                    $rut = $_POST['rutPostulante'];
+                    $nombre = $_POST['nombrePostulante'];
+                    $telefono = $_POST['telefonoPostulante'];
+                    $ciudad = $_POST['ciudadPostulante'];
+                    $direccion = $_POST['direccionPostulante'];
+                    $tipo = $_POST['tipoPostulante'];
+                    $codigo = $_POST['codigoPrograma'];
+            
+                    
+                    $sql = "INSERT INTO postulante (rut, nombre, telefono, direccion, tipo) 
+                            VALUES ('$rut', '$nombre', '$telefono', '$direccion', '$tipo');";
+
+
+                    $sql2 = "INSERT INTO postulacion (ciudad,fecha,rut_postulante,codigo_programa,rut_ejecutor)
+                              VALUES ('$ciudad',NOW(), '$rut', '$codigo',(SELECT rut FROM ejecutor WHERE ocupado = false));";
+                    $sql3 = "INSERT INTO ejecucion (codigo_programa, fecha_inicio, rut_ejecutor)
+                    VALUES ('$codigo', NOW(), (SELECT rut FROM ejecutor WHERE ocupado = false));";
+
+            
+                    $insercion = pg_query($coneccion, $sql);
+
+                    $insercion3 = pg_query($coneccion, $sql3);
+
+                    $insercion2 = pg_query($coneccion, $sql2);
+            
+                    if ($insercion) 
+                    {
+                        if($insercion2)
+                        {
+                              if($insercion3)
+                              {
+                                   echo "Postulacion realizada con éxito";
+                              }
+                        }
+                    } else 
+                    {
+                        echo "Se ha producido un error al postular";
+                    }
+                } 
+                else 
+                {
+                    echo "Por favor, completa todos los campos obligatorios.";
+                }
+          }
+
+
+
+
+          ?>
 
                </table>
 
